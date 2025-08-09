@@ -1,0 +1,21 @@
+# Makefile for UDB to LLVM TableGen (single input file)
+
+PYTHON := python3
+SCRIPT := convert.py
+
+INPUT := input.yaml
+OUTPUT := output.td
+
+# Convert single input.yaml to output.td
+convert:
+	$(PYTHON) $(SCRIPT) $(INPUT) $(OUTPUT)
+
+# Clean generated .td files
+clean:
+	rm -f $(OUTPUT)
+
+# Help message
+help:
+	@echo "Usage:"
+	@echo "  make convert    # Convert input.yaml to output.td"
+	@echo "  make clean      # Remove output.td"
